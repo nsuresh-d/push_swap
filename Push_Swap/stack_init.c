@@ -23,7 +23,7 @@ static long ft_atol(const char *s)
 		s++;
 	if (*s == '-' || *s == '+')
 	{
-		if (*s == -)
+		if (*s == '-')
 			sign = -1;
 		s++;
 	}
