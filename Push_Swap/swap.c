@@ -15,7 +15,7 @@
 static void	swap(t_stack_node **head)
 {
 	if (!*head || !(*head)->next)
-		return;
+		return ;
 	*head = (*head)->next;
 	(*head)->prev->prev = *head;
 	(*head)->prev->next = (*head)->next;
@@ -42,5 +42,5 @@ void	ss(t_stack_node **a, t_stack_node **b, int print)
 	swap(a);
 	swap(b);
 	if (!print)
-		ft_printf("ss\n")
+		ft_printf("ss\n");
 }
