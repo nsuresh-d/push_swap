@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node **cheapest_node)
+static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node && *a != cheapest_node)
 		rr(a, b, 0);
@@ -21,10 +21,10 @@ static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node **cheap
 }
 static void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
 {
-	while (*b != cheapest_node->targeted_node && *a != cheapest_node)
+	while (*b != cheapest_node->target_node && *a != cheapest_node)
 		rrr(a, b, 0);
 	current_index(*a);
-	currect_index(*b);
+	current_index(*b);
 }
 static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
@@ -51,7 +51,7 @@ static void	min_on_top(t_stack_node **a)
 		if (find_min(*a)->above_median)
 			ra(a, 0);
 		else
-			rra(a, false);
+			rra(a, 0);
 	}
 }
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
