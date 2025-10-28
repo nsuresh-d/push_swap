@@ -35,12 +35,14 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 		*dst = push_node;
 	}
 }
+
 void	pa(t_stack_node **a, t_stack_node **b, int print)
 {
 	push(a, b);
 	if (!print)
 		ft_printf("pa\n");
 }
+
 void	pb(t_stack_node **b, t_stack_node **a, int print)
 {
 	push(b, a);

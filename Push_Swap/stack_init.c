@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static long ft_atol(const char *s)
+static long	ft_atol(const char *s)
 {
 	long	result;
 	int		sign;
@@ -31,7 +31,8 @@ static long ft_atol(const char *s)
 		result = result * 10 + (*s++ - '0');
 	return (result * sign);
 }
-static void append_node(t_stack_node **stack, int n)
+
+static void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
 	t_stack_node	*last_node;
@@ -55,6 +56,7 @@ static void append_node(t_stack_node **stack, int n)
 		node->prev = last_node;
 	}
 }
+
 void	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;
@@ -87,7 +89,9 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	}
 	return (NULL);
 }
-void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+
+void	prep_for_push(t_stack_node **stack,
+								t_stack_node *top_node, char stack_name)
 {
 	while (*stack != top_node)
 	{

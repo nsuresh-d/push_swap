@@ -24,19 +24,21 @@ static void	swap(t_stack_node **head)
 	(*head)->next = (*head)->prev;
 	(*head)->prev = NULL;
 }
+
 void	sa(t_stack_node **a, int print)
 {
 	swap(a);
 	if (!print)
 		ft_printf("sa\n");
-
 }
+
 void	sb(t_stack_node **b, int print)
 {
 	swap(b);
 	if (!print)
 		ft_printf("sb\n");
 }
+
 void	ss(t_stack_node **a, t_stack_node **b, int print)
 {
 	swap(a);

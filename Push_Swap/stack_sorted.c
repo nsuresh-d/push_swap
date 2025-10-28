@@ -14,7 +14,7 @@
 
 int	stack_len(t_stack_node *stack)
 {
-    int	count;
+	int	count;
 
 	if (!stack)
 		return (0);
@@ -48,6 +48,7 @@ int	stack_sorted(t_stack_node *stack)
 	}
 	return (1);
 }
+
 t_stack_node	*find_min(t_stack_node *stack)
 {
 	long			min;
@@ -67,6 +68,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 	}
 	return (min_node);
 }
+
 t_stack_node	*find_max(t_stack_node *stack)
 {
 	long			max;

@@ -31,6 +31,7 @@ int	error_syntax(char *str)
 	}
 	return (0);
 }
+
 int	error_duplicate(t_stack_node *a, int n)
 {
 	while (a)
@@ -41,6 +42,7 @@ int	error_duplicate(t_stack_node *a, int n)
 	}
 	return (0);
 }
+
 void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*temp;
@@ -64,6 +66,7 @@ void	free_errors(t_stack_node **stack)
 	write(2, "Error\n", 6);
 	exit(1);
 }
+
 void	free_split(char **split)
 {
 	int	i;

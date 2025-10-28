@@ -32,12 +32,14 @@ void	rra(t_stack_node **a, int print)
 	if (!print)
 		ft_printf("rra\n");
 }
+
 void	rrb(t_stack_node **b, int print)
 {
 	rev_rotate(b);
 	if (!print)
 		ft_printf("rrb\n");
 }
+
 void	rrr(t_stack_node **a, t_stack_node **b, int print)
 {
 	rev_rotate(a);

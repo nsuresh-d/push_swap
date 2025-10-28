@@ -21,14 +21,14 @@
 
 typedef struct s_stack_node
 {
-	int			nbr;
-	int			index;
-	int			push_cost;
-	int			above_median;
-	int			cheapest;
-	struct s_stack_node *target_node;
-	struct s_stack_node *next;
-	struct s_stack_node *prev;
+	int					nbr;
+	int					index;
+	int					push_cost;
+	int					above_median;
+	int					cheapest;
+	struct s_stack_node	*target_node;
+	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
 }	t_stack_node;
 
 int				error_syntax(char *str);
@@ -42,7 +42,8 @@ void			init_nodes_b(t_stack_node *a, t_stack_node *b);
 void			current_index(t_stack_node *stack);
 void			set_cheapest(t_stack_node *stack);
 t_stack_node	*get_cheapest(t_stack_node *stack);
-void			prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name);
+void			prep_for_push(t_stack_node **stack,
+					t_stack_node *top_node, char stack_name);
 int				stack_len(t_stack_node *stack);
 t_stack_node	*find_last(t_stack_node *stack);
 int				stack_sorted(t_stack_node *stack);
