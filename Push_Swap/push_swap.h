@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
+# include "../ft_printf_1/ft_printf.h"
 
 typedef struct s_stack_node
 {
@@ -49,6 +49,7 @@ t_stack_node	*find_last(t_stack_node *stack);
 int				stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
+void			free_split(char **split);
 
 //Commands
 void			sa(t_stack_node **a, int print);

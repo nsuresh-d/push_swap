@@ -27,11 +27,19 @@ static long	ft_atol(const char *s)
 			sign = -1;
 		s++;
 	}
-	while (ft_isdigit(*s))
-		result = result * 10 + (*s++ - '0');
+	if (!*s)
+		return (LONG_MAX);
+	while (*s)
+	{
+		if (!ft_isdigit(*s))
+			return (LONG_MAX);
+		result = result * 10 + (*s - '0');
+		if ((sign == 1 && result > INT_MAX) || (sign == -1 && -result < INT_MIN))
+			return (LONG_MAX);
+		s++;
+	}
 	return (result * sign);
 }
-
 static void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
@@ -42,13 +50,16 @@ static void	append_node(t_stack_node **stack, int n)
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
 		return ;
-	node->next = NULL;
 	node->nbr = n;
+	node->next = NULL;
+	node->prev = NULL;
+	node->cheapest = 0;
+	node->above_median = 0;
+	node->index = 0;
+	node->target_node = NULL;
+
 	if (!(*stack))
-	{
 		*stack = node;
-		node->prev = NULL;
-	}
 	else
 	{
 		last_node = find_last(*stack);
@@ -68,7 +79,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		if (error_syntax(argv[i]))
 			free_errors(a);
 		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
+		if (n == LONG_MAX || n > INT_MAX || n < INT_MIN)
 			free_errors(a);
 		if (error_duplicate(*a, (int)n))
 			free_errors(a);
@@ -79,8 +90,6 @@ void	init_stack_a(t_stack_node **a, char **argv)
 
 t_stack_node	*get_cheapest(t_stack_node *stack)
 {
-	if (!stack)
-		return (NULL);
 	while (stack)
 	{
 		if (stack->cheapest)
@@ -90,8 +99,7 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-void	prep_for_push(t_stack_node **stack,
-								t_stack_node *top_node, char stack_name)
+void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
 {
 	while (*stack != top_node)
 	{
